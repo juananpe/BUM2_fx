@@ -1,5 +1,7 @@
 package eus.ehu.domain;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -71,10 +73,18 @@ public class Flight {
 
 	public ArrayList<ConcreteFlight> getConcreteFlights(Date date) {
 		ArrayList<ConcreteFlight> lInDate = new ArrayList<ConcreteFlight>();
+		// Convert the input date to LocalDate
+		LocalDate inputDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
 		for (ConcreteFlight cfl : concreteFlights) {
-			if (date.equals(cfl.getDate()))
+			// Convert each ConcreteFlight's date to LocalDate
+			LocalDate flightDate = cfl.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+			// Compare only the date parts
+			if (inputDate.equals(flightDate))
 				lInDate.add(cfl);
 		}
+
 		return lInDate;
 	}
 

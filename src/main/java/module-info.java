@@ -6,4 +6,6 @@ module eus.ehu.bum2 {
 
     opens eus.ehu.presentation to javafx.fxml;
     exports eus.ehu.presentation;
+    exports eus.ehu.business_logic;
+    exports eus.ehu.domain;
 }
