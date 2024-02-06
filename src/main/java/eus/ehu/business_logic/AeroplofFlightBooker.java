@@ -40,24 +40,27 @@ public class AeroplofFlightBooker implements FlightBooker {
 		availableFlights.add(flight2);
 
 		SimpleDateFormat format = new SimpleDateFormat("d'-'M'-'yy", Locale.ENGLISH);
+		// Get current year as a 2 digit String
+		String year = new SimpleDateFormat("yy", Locale.ENGLISH).format(new Date());
+
 		try {
-			new ConcreteFlight("PLOF324", format.parse("6-6-23"),1,2,3,"10:00",flight1);
-			new ConcreteFlight("PLOF020", format.parse("7-6-23"),4,3,20,"11:00",flight1);
-			new ConcreteFlight("PLOF021", format.parse("7-7-23"),0,0,0,"12:00",flight1);
-			new ConcreteFlight("PLOF022", format.parse("7-7-23"),1,3,2,"13:00",flight1);
-			new ConcreteFlight("PLOF023", format.parse("7-7-23"),0,3,7,"14:00",flight1);
-			new ConcreteFlight("PLOF024", format.parse("7-7-23"),0,0,1,"15:00",flight1);
-			new ConcreteFlight("PLOF025", format.parse("7-7-23"),2,4,1,"16:00",flight1);
-			new ConcreteFlight("PLOF026", format.parse("7-7-23"),3,3,0,"17:00",flight1);
-			new ConcreteFlight("PLOF027", format.parse("7-7-23"),3,5,12,"18:00",flight1);
-			new ConcreteFlight("PLOF028", format.parse("7-7-23"),3,3,0,"19:00",flight1);
-			new ConcreteFlight("PLOF029", format.parse("7-7-23"),2,4,1,"20:00",flight1);
-			new ConcreteFlight("PLOF030", format.parse("7-7-23"),3,6,10,"21:00",flight1);
-			new ConcreteFlight("PLOF031", format.parse("7-7-23"),0,3,4,"22:00",flight1);
-			new ConcreteFlight("PLOF032", format.parse("7-7-23"),0,2,11,"23:00",flight1);
-			new ConcreteFlight("PLOF087", format.parse("6-6-23"),13,0,0,"10:00",flight2);
-			new ConcreteFlight("PLOF264", format.parse("7-6-23"),3,6,10,"11:00",flight2);
-			new ConcreteFlight("PLOF433", format.parse("7-7-23"),3,3,0,"12:00",flight2);
+			new ConcreteFlight("PLOF324", format.parse("6-6-" + year),1,2,3,"10:00",flight1);
+			new ConcreteFlight("PLOF020", format.parse("7-6-" + year),4,3,20,"11:00",flight1);
+			new ConcreteFlight("PLOF021", format.parse("7-7-" + year),0,0,0,"12:00",flight1);
+			new ConcreteFlight("PLOF022", format.parse("7-7-" + year),1,3,2,"13:00",flight1);
+			new ConcreteFlight("PLOF023", format.parse("7-7-" + year),0,3,7,"14:00",flight1);
+			new ConcreteFlight("PLOF024", format.parse("7-7-" + year),0,0,1,"15:00",flight1);
+			new ConcreteFlight("PLOF025", format.parse("7-7-" + year),2,4,1,"16:00",flight1);
+			new ConcreteFlight("PLOF026", format.parse("7-7-" + year),3,3,0,"17:00",flight1);
+			new ConcreteFlight("PLOF027", format.parse("7-7-" + year),3,5,12,"18:00",flight1);
+			new ConcreteFlight("PLOF028", format.parse("7-7-" + year),3,3,0,"19:00",flight1);
+			new ConcreteFlight("PLOF029", format.parse("7-7-" + year),2,4,1,"20:00",flight1);
+			new ConcreteFlight("PLOF030", format.parse("7-7-" + year),3,6,10,"21:00",flight1);
+			new ConcreteFlight("PLOF031", format.parse("7-7-" + year),0,3,4,"22:00",flight1);
+			new ConcreteFlight("PLOF032", format.parse("7-7-" + year),0,2,11,"23:00",flight1);
+			new ConcreteFlight("PLOF087", format.parse("6-6-" + year),13,0,0,"10:00",flight2);
+			new ConcreteFlight("PLOF264", format.parse("7-6-" + year),3,6,10,"11:00",flight2);
+			new ConcreteFlight("PLOF433", format.parse("7-7-" + year),3,3,0,"12:00",flight2);
 		}
 		catch(ParseException pe) {
 			System.out.println("ERROR: At least one of the provided initial " +

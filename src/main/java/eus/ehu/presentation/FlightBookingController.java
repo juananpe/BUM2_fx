@@ -18,7 +18,6 @@ import javafx.event.ActionEvent;
 
 import eus.ehu.business_logic.FlightBooker;
 import eus.ehu.domain.ConcreteFlight;
-import javafx.scene.input.MouseEvent;
 
 public class FlightBookingController {
 
@@ -84,6 +83,10 @@ public class FlightBookingController {
 
         conFlightList.setItems(conFlightInfo);
         bookSelectedConFlightButton.setDisable(true);
+
+        // Get current year as a 4 digit String
+        String year = new SimpleDateFormat("yyyy", Locale.ENGLISH).format(new Date());
+        yearInput.setText(year);
 
         /**
          *
@@ -169,8 +172,6 @@ public class FlightBookingController {
 
     @FXML
     void initialize() {
-        assert output != null : "fx:id=\"output\" was not injected: check your FXML file 'hello-view.fxml'.";
-
         setupInputComponents();
         setBusinessLogic(new AeroplofFlightBooker());
 
