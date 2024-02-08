@@ -1,4 +1,4 @@
-package eus.ehu;
+package eus.ehu.bum2;
 
 import eus.ehu.business_logic.AeroplofFlightBooker;
 import eus.ehu.domain.ConcreteFlight;
