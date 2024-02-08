@@ -81,7 +81,7 @@ class AeroplofFlightBookerTest {
         assertEquals(-1, remainingSeats, "Expected booking to fail due to insufficient seats, but it succeeded.");
     }
 
-        @Test
+    @Test
     void testAllocateSeatSuccessfully() {
         // Assuming a ConcreteFlight instance with available seats in Economy class
         ConcreteFlight flight = new ConcreteFlight("TestFlight", new Date(), 10, 5, 5, "12:00", new Flight("DEP-ARR", "DepartureCity", "ArrivalCity"));
