@@ -1,3 +1,5 @@
+package eus.ehu;
+
 import eus.ehu.business_logic.AeroplofFlightBooker;
 import eus.ehu.domain.ConcreteFlight;
 import org.junit.jupiter.api.BeforeEach;
