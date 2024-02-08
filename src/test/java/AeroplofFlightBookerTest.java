@@ -80,5 +80,31 @@ class AeroplofFlightBookerTest {
 
         assertEquals(-1, remainingSeats, "Expected booking to fail due to insufficient seats, but it succeeded.");
     }
+
+        @Test
+    void testAllocateSeatSuccessfully() {
+        // Assuming a ConcreteFlight instance with available seats in Economy class
+        ConcreteFlight flight = new ConcreteFlight("TestFlight", new Date(), 10, 5, 5, "12:00", new Flight("DEP-ARR", "DepartureCity", "ArrivalCity"));
+        String fare = "Economy";
+        int seatsToAllocate = 1;
+
+        int remainingSeats = flight.allocateSeat(fare, seatsToAllocate);
+
+        assertTrue(remainingSeats >= 0, "Should successfully allocate seat and return non-negative remaining seats.");
+        assertEquals(4, remainingSeats, "After allocating one seat, remaining seats should be reduced by one.");
+    }
+
+    @Test
+    void testAllocateSeatFailureDueToInsufficientSeats() {
+        // Assuming a ConcreteFlight instance with 2 First seats left
+        ConcreteFlight flight = new ConcreteFlight("TestFlight", new Date(), 2, 5, 5, "12:00", new Flight("DEP-ARR", "DepartureCity", "ArrivalCity"));
+        String fare = "First";
+        int seatsToAllocate = 3; // Attempting to allocate more seats than available
+
+        int remainingSeats = flight.allocateSeat(fare, seatsToAllocate);
+
+        assertEquals(-1, remainingSeats, "Allocating more seats than available should fail and return -1.");
+    }
+
  */
 }
