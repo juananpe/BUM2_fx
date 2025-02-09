@@ -4,12 +4,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * ConcreteFlight
+ * ScheduledFlight
  *
  *  An object of this class represents an actual scheduled flight for an air
  *  route of the class 'Flight'
  */
-public class ConcreteFlight {
+public class ScheduledFlight {
 
 	private String cfCode;
 	private Flight flight;
@@ -19,8 +19,8 @@ public class ConcreteFlight {
 	private int freeBusinessSeats;
 	private int freeEconomySeats;
 
-	public ConcreteFlight(String code, Date date, int firstSeats, int businessSeats,
-			int economySeats, String time, Flight flight) {
+	public ScheduledFlight(String code, Date date, int firstSeats, int businessSeats,
+						   int economySeats, String time, Flight flight) {
 		this.cfCode = code;
 		this.date = date;
 		this.departureTime = time;
@@ -30,7 +30,7 @@ public class ConcreteFlight {
 		this.freeBusinessSeats = businessSeats;
 		this.freeEconomySeats = economySeats;
 
-		flight.addConcreteFlight(this); //'flight -- concrete flight' relation must be kept two-way
+		flight.addScheduledFlight(this); //'flight -- concrete flight' relation must be kept two-way
 	}
 
 
@@ -127,7 +127,10 @@ public class ConcreteFlight {
 
 	public String toString() {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("EEE', 'd' 'MMM' 'yyyy");
-		return flight.toString() + " | " + dateFormat.format(date) + " [" + departureTime + "]";
-		}
+		return String.format("%s | %s [%s]",
+				flight.toString(),
+				dateFormat.format(date),
+				departureTime);
+	}
 
 }

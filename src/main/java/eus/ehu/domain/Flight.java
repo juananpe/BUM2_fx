@@ -18,14 +18,14 @@ public class Flight {
 	private String flightCode;
 	private String departureCity;
 	private String arrivalCity;
-	private List<ConcreteFlight> concreteFlights;
+	private List<ScheduledFlight> scheduledFlights;
 
 	public Flight(String flightCode, String departureCity, String arrivalCity) {
 		super();
 		this.flightCode = flightCode;
 		this.departureCity = departureCity;
 		this.arrivalCity = arrivalCity;
-		this.concreteFlights = new ArrayList<ConcreteFlight>();
+		this.scheduledFlights = new ArrayList<ScheduledFlight>();
 	}
 
 
@@ -59,24 +59,24 @@ public class Flight {
 	}
 
 
-	public void addConcreteFlight(ConcreteFlight conFl) {
-		concreteFlights.add(conFl);
+	public void addScheduledFlight(ScheduledFlight conFl) {
+		scheduledFlights.add(conFl);
 	}
 
 
-	public ArrayList<ConcreteFlight> getConcreteFlights() {
-		ArrayList<ConcreteFlight> l = new ArrayList<ConcreteFlight>();
-		l.addAll(concreteFlights);
+	public ArrayList<ScheduledFlight> getScheduledFlights() {
+		ArrayList<ScheduledFlight> l = new ArrayList<ScheduledFlight>();
+		l.addAll(scheduledFlights);
 		return l;
 	}
 
 
-	public ArrayList<ConcreteFlight> getConcreteFlights(Date date) {
-		ArrayList<ConcreteFlight> lInDate = new ArrayList<ConcreteFlight>();
+	public ArrayList<ScheduledFlight> getScheduledFlights(Date date) {
+		ArrayList<ScheduledFlight> lInDate = new ArrayList<ScheduledFlight>();
 		// Convert the input date to LocalDate
 		LocalDate inputDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 
-		for (ConcreteFlight cfl : concreteFlights) {
+		for (ScheduledFlight cfl : scheduledFlights) {
 			// Convert each ConcreteFlight's date to LocalDate
 			LocalDate flightDate = cfl.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 
@@ -89,8 +89,8 @@ public class Flight {
 	}
 
 
-	public void setConcreteFlights(List<ConcreteFlight> concreteFlights) {
-		this.concreteFlights = concreteFlights;
+	public void setConcreteFlights(List<ScheduledFlight> scheduledFlights) {
+		this.scheduledFlights = scheduledFlights;
 	}
 
 

@@ -1,9 +1,8 @@
 package eus.ehu.business_logic;
 
-import eus.ehu.domain.ConcreteFlight;
+import eus.ehu.domain.ScheduledFlight;
 import eus.ehu.domain.Flight;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -48,23 +47,23 @@ public class AeroplofFlightBooker implements FlightBooker {
 		String year = new SimpleDateFormat("yy", Locale.ENGLISH).format(new Date());
 
 
-		new ConcreteFlight("PLOF324", parseDateTime("7-6-" + year + " 10:00"), 1, 2, 3, "10:00", flight1);
-		new ConcreteFlight("PLOF020", parseDateTime("7-6-" + year + " 11:00"), 4, 3, 20, "11:00", flight1);
-		new ConcreteFlight("PLOF021", parseDateTime("7-7-" + year + " 12:00"), 0, 0, 0, "12:00", flight1);
-		new ConcreteFlight("PLOF022", parseDateTime("7-7-" + year + " 13:00"), 1, 3, 2, "13:00", flight1);
-		new ConcreteFlight("PLOF023", parseDateTime("7-7-" + year + " 14:00"), 0, 3, 7, "14:00", flight1);
-		new ConcreteFlight("PLOF024", parseDateTime("7-7-" + year + " 15:00"), 0, 0, 1, "15:00", flight1);
-		new ConcreteFlight("PLOF025", parseDateTime("7-7-" + year + " 16:00"), 2, 4, 1, "16:00", flight1);
-		new ConcreteFlight("PLOF026", parseDateTime("7-7-" + year + " 17:00"), 3, 3, 0, "17:00", flight1);
-		new ConcreteFlight("PLOF027", parseDateTime("7-7-" + year + " 18:00"), 3, 5, 12, "18:00", flight1);
-		new ConcreteFlight("PLOF028", parseDateTime("7-7-" + year + " 19:00"), 3, 3, 0, "19:00", flight1);
-		new ConcreteFlight("PLOF029", parseDateTime("7-7-" + year + " 20:00"), 2, 4, 1, "20:00", flight1);
-		new ConcreteFlight("PLOF030", parseDateTime("7-7-" + year + " 21:00"), 3, 6, 10, "21:00", flight1);
-		new ConcreteFlight("PLOF031", parseDateTime("7-7-" + year + " 22:00"), 0, 3, 4, "22:00", flight1);
-		new ConcreteFlight("PLOF032", parseDateTime("7-7-" + year + " 23:00"), 0, 2, 11, "23:00", flight1);
-		new ConcreteFlight("PLOF087", parseDateTime("6-6-" + year + " 10:00"), 13, 0, 0, "10:00", flight2);
-		new ConcreteFlight("PLOF264", parseDateTime("7-6-" + year + " 11:00"), 3, 6, 10, "11:00", flight2);
-		new ConcreteFlight("PLOF433", parseDateTime("7-7-" + year + " 12:00"), 3, 3, 0, "12:00", flight2);
+		new ScheduledFlight("PLOF324", parseDateTime("7-6-" + year + " 10:00"), 1, 2, 3, "10:00", flight1);
+		new ScheduledFlight("PLOF020", parseDateTime("7-6-" + year + " 11:00"), 4, 3, 20, "11:00", flight1);
+		new ScheduledFlight("PLOF021", parseDateTime("7-7-" + year + " 12:00"), 0, 0, 0, "12:00", flight1);
+		new ScheduledFlight("PLOF022", parseDateTime("7-7-" + year + " 13:00"), 1, 3, 2, "13:00", flight1);
+		new ScheduledFlight("PLOF023", parseDateTime("7-7-" + year + " 14:00"), 0, 3, 7, "14:00", flight1);
+		new ScheduledFlight("PLOF024", parseDateTime("7-7-" + year + " 15:00"), 0, 0, 1, "15:00", flight1);
+		new ScheduledFlight("PLOF025", parseDateTime("7-7-" + year + " 16:00"), 2, 4, 1, "16:00", flight1);
+		new ScheduledFlight("PLOF026", parseDateTime("7-7-" + year + " 17:00"), 3, 3, 0, "17:00", flight1);
+		new ScheduledFlight("PLOF027", parseDateTime("7-7-" + year + " 18:00"), 3, 5, 12, "18:00", flight1);
+		new ScheduledFlight("PLOF028", parseDateTime("7-7-" + year + " 19:00"), 3, 3, 0, "19:00", flight1);
+		new ScheduledFlight("PLOF029", parseDateTime("7-7-" + year + " 20:00"), 2, 4, 1, "20:00", flight1);
+		new ScheduledFlight("PLOF030", parseDateTime("7-7-" + year + " 21:00"), 3, 6, 10, "21:00", flight1);
+		new ScheduledFlight("PLOF031", parseDateTime("7-7-" + year + " 22:00"), 0, 3, 4, "22:00", flight1);
+		new ScheduledFlight("PLOF032", parseDateTime("7-7-" + year + " 23:00"), 0, 2, 11, "23:00", flight1);
+		new ScheduledFlight("PLOF087", parseDateTime("6-6-" + year + " 10:00"), 13, 0, 0, "10:00", flight2);
+		new ScheduledFlight("PLOF264", parseDateTime("7-6-" + year + " 11:00"), 3, 6, 10, "11:00", flight2);
+		new ScheduledFlight("PLOF433", parseDateTime("7-7-" + year + " 12:00"), 3, 3, 0, "12:00", flight2);
 
 	}
 
@@ -98,15 +97,15 @@ public class AeroplofFlightBooker implements FlightBooker {
 	 * @param intendedDate             introduced/selected by user
 	 * @return                         List of concrete flights
 	 */
-	public List<ConcreteFlight> getMatchingConFlights(String intendedDepartureCity,
-			String intendedArrivalCity, Date intendedDate) {
+	public List<ScheduledFlight> getMatchingConFlights(String intendedDepartureCity,
+													   String intendedArrivalCity, Date intendedDate) {
 
-		List<ConcreteFlight> matchingConFlights = new ArrayList<ConcreteFlight>();
+		List<ScheduledFlight> matchingConFlights = new ArrayList<ScheduledFlight>();
 
 		for (Flight fli : availableFlights) {
 			if (fli.getArrivalCity().equals(intendedArrivalCity) &&
 					fli.getDepartureCity().equals(intendedDepartureCity))
-				matchingConFlights.addAll(fli.getConcreteFlights(intendedDate));
+				matchingConFlights.addAll(fli.getScheduledFlights(intendedDate));
 		}
 
 		return matchingConFlights;
@@ -119,7 +118,7 @@ public class AeroplofFlightBooker implements FlightBooker {
 	 * @return				The number of remaining free seats for this fare after
 	 * 						the booking, or -1 if no available seat to book
 	 */
-	public int bookSeat(ConcreteFlight conFli, String fare) {
+	public int bookSeat(ScheduledFlight conFli, String fare) {
 		return conFli.allocateSeat(fare, 1);
 	}
 

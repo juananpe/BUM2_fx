@@ -11,7 +11,7 @@ public class FlightBookingGUI extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(FlightBookingGUI.class.getResource("FlightBooking.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 620, 540);
+        Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Aeroplof Booking Center");
         stage.setScene(scene);
         stage.show();

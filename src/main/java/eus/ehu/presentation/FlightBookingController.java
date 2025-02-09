@@ -8,7 +8,6 @@ import javafx.scene.control.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -17,7 +16,7 @@ import javafx.event.ActionEvent;
 
 
 import eus.ehu.business_logic.FlightBooker;
-import eus.ehu.domain.ConcreteFlight;
+import eus.ehu.domain.ScheduledFlight;
 
 public class FlightBookingController {
 
@@ -25,10 +24,10 @@ public class FlightBookingController {
     private Label output;
 
     // create conFlightInfo JAvaFX observable list
-    private ObservableList<ConcreteFlight> conFlightInfo = FXCollections.observableArrayList();
+    private ObservableList<ScheduledFlight> conFlightInfo = FXCollections.observableArrayList();
 
     @FXML
-    private ListView<ConcreteFlight> conFlightList;
+    private ListView<ScheduledFlight> conFlightList;
     ;
 
     @FXML
@@ -62,7 +61,7 @@ public class FlightBookingController {
     private RadioButton businessRB;
 
     private FlightBooker businessLogic;
-    private ConcreteFlight selectedConFlight;
+    private ScheduledFlight selectedConFlight;
 
     /**
      * setupInputComponents method
@@ -122,10 +121,10 @@ public class FlightBookingController {
 
         try {
             Date chosenDate = format.parse(chosenDateString);
-            List<ConcreteFlight> foundConFlights = businessLogic.
+            List<ScheduledFlight> foundConFlights = businessLogic.
                     getMatchingConFlights(departureInput.getText(),
                             arrivalInput.getText(), chosenDate);
-            for (ConcreteFlight v : foundConFlights)
+            for (ScheduledFlight v : foundConFlights)
                 conFlightInfo.add(v);
             if (foundConFlights.isEmpty())
                 searchResultAnswer.setText("No matching flights found. " +

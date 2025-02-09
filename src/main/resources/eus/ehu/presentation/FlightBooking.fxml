@@ -30,7 +30,7 @@
       <RadioButton fx:id="economyRB" layoutX="349.0" layoutY="183.0" mnemonicParsing="false" text="Economy class" toggleGroup="$fareRB" />
       <Button layoutX="203.0" layoutY="225.0" mnemonicParsing="false" onAction="#searchConFlightsButton" text="Search matching flights" />
       <Label fx:id="searchResultAnswer" layoutX="112.0" layoutY="261.0" prefHeight="17.0" prefWidth="344.0" text="  " />
-      <ListView fx:id="conFlightList" layoutX="110.0" layoutY="289.0" prefHeight="168.0" prefWidth="365.0" />
-      <Button fx:id="bookSelectedConFlightButton" layoutX="110.0" layoutY="467.0" mnemonicParsing="false" onAction="#selectConFlight" prefHeight="26.0" prefWidth="365.0" text=" " />
+      <ListView fx:id="conFlightList" layoutX="110.0" layoutY="289.0" prefHeight="168.0" prefWidth="400.0" />
+      <Button fx:id="bookSelectedConFlightButton" layoutX="110.0" layoutY="467.0" mnemonicParsing="false" onAction="#selectConFlight" prefHeight="26.0" prefWidth="400.0" text=" " />
    </children>
 </AnchorPane>

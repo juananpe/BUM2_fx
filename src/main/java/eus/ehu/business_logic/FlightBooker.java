@@ -3,7 +3,7 @@ package eus.ehu.business_logic;
 import java.util.Date;
 import java.util.List;
 
-import eus.ehu.domain.ConcreteFlight;
+import eus.ehu.domain.ScheduledFlight;
 
 /**
  * FlightBooker Interface
@@ -23,8 +23,8 @@ public interface FlightBooker {
 	 * @param date				The date of the concrete flight
 	 * @return					A List of concrete flights that meet the restrictions
 	 */
-	public List<ConcreteFlight> getMatchingConFlights(String departureCity,
-													  String arrivalCity, Date date);
+	public List<ScheduledFlight> getMatchingConFlights(String departureCity,
+                                                       String arrivalCity, Date date);
 
 
 	/**
@@ -35,6 +35,6 @@ public interface FlightBooker {
 	 * @return				The number of remaining free seats for this fare after
 	 * 						the booking, or -1 if no available seat to book
 	 */
-	public int bookSeat(ConcreteFlight conFli, String fare);
+	public int bookSeat(ScheduledFlight conFli, String fare);
 
 }

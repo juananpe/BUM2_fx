@@ -1,15 +1,5 @@
 package eus.ehu.bum2;
 
-import eus.ehu.business_logic.AeroplofFlightBooker;
-import eus.ehu.domain.ConcreteFlight;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
